@@ -7,7 +7,7 @@
 	<h2>Calculate Drugs to purchase</h2>
 	<p>For how many days do you want to purchase drugs?</p> <form id="drug_days"> <input type="number" id="days" value="30"> <button type="submit">Enter</button> </form>
 
-	<table id="purchase_table">	
+	<table id="purchase_table" style="display:none;">	
 		<thead>
 			<tr>
 				<th>ID</th>
@@ -30,9 +30,20 @@
 			<% } %> <!--  End loop -->
 		</tbody>
 	</table>
+	<!-- Khai báo biến drugs cho JS -->
+<script>
+    // Encode JSON sang Base64 để nhúng an toàn
+    const drugs = JSON.parse(atob('<%= Buffer.from(JSON.stringify(drugs)).toString("base64") %>'));
+</script>
+
+
+<!-- JS xử lý submit -->
+<script src="/js/purchase.js"></script>
 </main>
+
 <!-- End main section -->
 <!-- add footer -->
 <%- include('includes/_footer') %>
 <!-- end footer-->
+ 
 

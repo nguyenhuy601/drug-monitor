@@ -78,8 +78,8 @@ exports.update = (req,res)=>{
             if(!data){
                 res.status(404).send({ message : `Drug with id: ${id} cannot be updated`})
             }else{
-                res.send(data);
-                //res.redirect('/');
+                res.json({ message: "Drug updated successfully!", drug: data });
+                // res.redirect('/manage');
             }
         })
         .catch(err =>{

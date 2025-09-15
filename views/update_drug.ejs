@@ -10,24 +10,24 @@
   <h2>Edit <%= drug.name %></h2>
 <p>Use the below form to edit <%= drug.name %></p>
  <!-- Update drug form -->
- <form method="POST" id="update_drug">
+ <form method="POST" id="update_drug" action="/api/drugs/<%= drug._id %>?_method=PUT">
     <div class="container d-flex flex-column align-items-stretch">
         <div class="row mb-3 form-group justify-content-center">             
             <label for="name" class="col-3 col-form-label">Drug Name</label>
             <input type="hidden" name="id" value="<%= drug._id %>">
-            <input type="text" name="name" value="<%= drug.name %>" placeholder="Drug Name" class="col-xs-8 col-md-4">
+            <input type="text" id="name" name="name" value="<%= drug.name %>" placeholder="Drug Name" class="col-xs-8 col-md-4">
         </div>
         <div class="row mb-3 form-group justify-content-center">
             <label for="card" class="col-3 col-form-label">Tablets per Card</label>
-            <input type="number" name="card" value="<%= drug.card %>" placeholder="Tablets per Card" min="1" max="500" class="col-xs-8 col-md-4">
+            <input type="number" id="card" name="card" value="<%= drug.card %>" placeholder="Tablets per Card" min="1" max="2000" class="col-xs-8 col-md-4">
         </div>
         <div class="row mb-3 form-group justify-content-center">
             <label for="pack" class="col-3 col-form-label">Tablets per Pack</label>
-            <input type="number" name="pack" value="<%= drug.pack %>" placeholder="Tablets per Pack" min="1" max="500" class="col-xs-8 col-md-4">
+            <input type="number" id="pack" name="pack" value="<%= drug.pack %>" placeholder="Tablets per Pack" min="1" max="500" class="col-xs-8 col-md-4">
         </div>
         <div class="row mb-3 form-group justify-content-center">
             <label for="perDay" class="col-3 col-form-label">Taken per day</label>
-            <input type="number" name="perDay" value="<%= drug.perDay %>" placeholder="Taken per day" min="1" max="500" class="col-xs-8 col-md-4">
+            <input type="number" id="perDay" name="perDay" value="<%= drug.perDay %>" placeholder="Taken per day" min="1" max="500" class="col-xs-8 col-md-4">
         </div>
         <div class="row mb-3 form-group justify-content-center">             
             <label for="dosage" class="col-3 col-form-label">Dosage</label>
@@ -44,3 +44,4 @@
 <!-- add footer -->
 <%- include('includes/_footer') %>
 <!-- end footer-->
+
